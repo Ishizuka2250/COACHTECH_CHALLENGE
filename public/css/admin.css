@@ -1,0 +1,110 @@
+.contents {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.outer-input-box {
+  width: 90%;
+  border: 2px solid #000;
+  margin-bottom: 40px;
+}
+.inner-input-box {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.box1 {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.input-title {
+  display: inline-block;
+  width: 150px;
+  font-weight: bold;
+}
+.input-name {
+  display: inline-block;
+  margin: 0 10px 0 30px;
+  font-weight: bold;
+}
+.input-radio {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  margin: 0px 10px 0px 20px;
+}
+.input-radio-label {
+  vertical-align: middle;
+}
+.box2 {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.to {
+  display: inline-block;
+  margin: 0 10px;
+}
+.box3 {
+  display: flex;
+  align-items: center;
+}
+.input-text {
+  width: 180px;
+  height: 25px;
+  border-radius: 3px;
+  border: 1px solid #CCC;
+}
+.button-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0px 20px 0px;
+}
+.button {
+  display: inline-block;
+  background-color: #000;
+  color: #FFF;
+  border: 0;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 120px;
+  height: 40px;
+}
+.reset-link {
+  display: inline-block;
+  margin-top: 10px;
+}
+.delete-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+table {
+  width: 90%;
+}
+table tr th {
+  padding: 10px 0 10px 0;
+  border-bottom: 1px solid #000 ;
+}
+table tr td {
+  padding: 10px 0 10px 0;
+  text-align: center;
+}
+.delete-button {
+  display: inline-block;
+  background-color: #000;
+  color: #FFF;
+  border: 0;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 60px;
+  height: 25px;   
+}

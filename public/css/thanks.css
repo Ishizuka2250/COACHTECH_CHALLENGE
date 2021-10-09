@@ -1,0 +1,25 @@
+.contents {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.thanks-message {
+  margin-bottom: 40px;
+}
+.button {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #000;
+  color: #FFF;
+  border: 0;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 15px 30px;
+}
