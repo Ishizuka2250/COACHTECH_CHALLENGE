@@ -36,19 +36,19 @@
         <td>
           <div class="content-inner">
             @if($gender == 1)
-              <input class="input-radio" type="radio" name="gender" id="man" checked="checked">
+              <input class="input-radio" type="radio" name="gender" id="man" checked="checked" value="1">
               <label class="input-radio-label" for="man">男性</label>
-              <input class="input-radio" type="radio" name="gender" id="woman">
+              <input class="input-radio" type="radio" name="gender" id="woman" value="2">
               <label class="input-radio-label" for="woman">女性</label>
             @elseif($gender == 2)
-              <input class="input-radio" type="radio" name="gender" id="man">
+              <input class="input-radio" type="radio" name="gender" id="man" value="1">
               <label class="input-radio-label" for="man">男性</label>
-              <input class="input-radio" type="radio" name="gender" id="woman" checked="checked">
+              <input class="input-radio" type="radio" name="gender" id="woman" checked="checked" value="2">
               <label class="input-radio-label" for="woman">女性</label>
             @else
-              <input class="input-radio" type="radio" name="gender" id="man" checked="checked">
+              <input class="input-radio" type="radio" name="gender" id="man" checked="checked" value="1">
               <label class="input-radio-label" for="man">男性</label>
-              <input class="input-radio" type="radio" name="gender" id="woman">
+              <input class="input-radio" type="radio" name="gender" id="woman" value="2">
               <label class="input-radio-label" for="woman">女性</label>
             @endif
           </div>

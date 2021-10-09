@@ -11,7 +11,7 @@
 @endsection
 
 @section('contents')
-  <form action="/contact" method="POST">
+  <form action="/create" method="POST">
     @csrf
     <table>
       <tr>
@@ -82,7 +82,7 @@
         </td>
       </tr>
     </table>
-    <input class="button" type="submit" value="確認">
+    <input class="button" type="submit" value="送信">
   </form>
   <a class="fix-link" href="/contact?fix=1&fullname={{$fullname}}&gender={{$gender}}&email={{$email}}&postcode={{$postcode}}&address={{$address}}&building_name={{$building_name}}&opinion={{$opinion}}">修正する</a>
 @endsection
