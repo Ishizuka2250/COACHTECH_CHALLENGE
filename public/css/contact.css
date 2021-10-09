@@ -75,7 +75,26 @@ table td {
   height: 40px;
   margin: 30px auto 10px;
 }
-.input-error-message{
-  display: inline-block;
-
+.error-message {
+  font-size: small;
+  color: #F00;
+  margin: 5px 0 0 10px;
+}
+.firstname-error {
+  display: none;
+}
+.surname-error {
+  display: none;
+}
+.email-error {
+  display: none;
+}
+.postcode-error {
+  display: none;
+}
+.address-error {
+  display: none;
+}
+.opinion-error {
+  display: none;
 }
