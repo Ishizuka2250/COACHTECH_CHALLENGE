@@ -27,7 +27,7 @@
       <tr>
         <th><p>性別</p></th>
         <td>
-          <input type="hidden" name="sex" value="">
+          <input type="hidden" name="gender" value="">
           <div class="check-content-inner">
             <p>男性</p>
           </div>
@@ -45,7 +45,7 @@
       <tr>
         <th><p>郵便番号</p></th>
         <td>
-          <input type="hidden" name="zipcode" value="">
+          <input type="hidden" name="postcode" value="">
           <div class="check-content-inner">
             <p>123-4567</p>
           </div>
@@ -63,7 +63,7 @@
       <tr>
         <th><p>建物名</p></th>
         <td>
-          <input type="hidden" name="building" value="">
+          <input type="hidden" name="building_name" value="">
           <div class="check-content-inner">
             <p>千駄ヶ谷マンション</p>
           </div>
@@ -72,7 +72,7 @@
       <tr>
         <th><p>ご意見</p></th>
         <td>
-          <input type="hidden" name="feedback" value="">
+          <input type="hidden" name="opinion" value="">
           <div class="check-content-inner">
             <p>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</p>
           </div>

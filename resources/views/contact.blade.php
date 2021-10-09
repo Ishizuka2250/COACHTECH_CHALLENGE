@@ -33,11 +33,11 @@
       </tr>
       <tr>
         <th><span class="required">性別</span></th>
-        <td class="sex">
+        <td>
           <div class="content-inner">
-            <input class="input-radio" type="radio" name="sex" id="man">
+            <input class="input-radio" type="radio" name="gender" id="man">
             <label class="input-radio-label" for="man">男性</label>
-            <input class="input-radio" type="radio" name="sex" id="woman">
+            <input class="input-radio" type="radio" name="gender" id="woman">
             <label class="input-radio-label" for="woman">女性</label>
           </div>
           <span class="input-error-message"></span>
@@ -57,7 +57,7 @@
         <th><span class="required">郵便番号</span></th>
         <td>
           <div class="content-inner">
-            <input class="input-text" type="text" name="zipcode" maxlength="8" id="">
+            <input class="input-text" type="text" name="postcode" maxlength="8" id="">
             <span class="input-error-message"></span>
             <p class="example">例）123-4567</p>
           </div>
@@ -77,7 +77,7 @@
         <th><span>建物名</span></th>
         <td>
           <div class="content-inner">
-            <input class="input-text" type="text" name="building" id="">
+            <input class="input-text" type="text" name="building_name" id="">
             <p class="example">例）千駄ヶ谷マンション101</p>
           </div>
         </td>
@@ -86,7 +86,7 @@
         <th><span class="required">ご意見</span></th>
         <td>
           <div class="content-inner">
-            <textarea class="input-text feedback" name="feedback"></textarea>
+            <textarea class="input-text feedback" name="opinion"></textarea>
             <span class="input-error-message"></span>
           </div>
         </td>

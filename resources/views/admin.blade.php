@@ -19,11 +19,11 @@
         <p class="input-title">お名前</p>
         <input class="input-text" type="text" name="name">
         <p class="input-name">性別</p>
-        <input class="input-radio" type="radio" name="sex" id="all" value="0">
+        <input class="input-radio" type="radio" name="gender" id="all" value="0">
         <label class="input-radio-label" for="all">全て</label>
-        <input class="input-radio" type="radio" name="sex" id="man" value="1">
+        <input class="input-radio" type="radio" name="gender" id="man" value="1">
         <label class="input-radio-label" for="man">男性</label>
-        <input class="input-radio" type="radio" name="sex" id="woman" value="2">
+        <input class="input-radio" type="radio" name="gender" id="woman" value="2">
         <label class="input-radio-label" for="woman">女性</label>
       </div>
       <div class="box2">
