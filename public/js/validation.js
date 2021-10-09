@@ -42,7 +42,7 @@ function checkAndSubmit() {
   let errorCount = 0;
   if(! validation('firstname', document.getElementById('firstname').value, 'required')) errorCount++;
   if(! validation('surname', document.getElementById('surname').value, 'required')) errorCount++;
-  if(! validation('email', document.getElementById('email').value, 'required|pattern', '^.*@.*\\..*', 'メールアドレスの形式で入力してください')) errorCount++;
+  if(! validation('email', document.getElementById('email').value, 'required|pattern', '^.+@.+\\..+', 'メールアドレスの形式で入力してください')) errorCount++;
   if(! validation('postcode', document.getElementById('postcode').value, 'required|pattern', '[0-9]{3}-[0-9]{4}', '郵便番号の形式で入力してください')) errorCount++;
   if(! validation('address', document.getElementById('address').value, 'required')) errorCount++;
   if(! validation('opinion', document.getElementById('opinion').value, 'required')) errorCount++;
@@ -50,11 +50,17 @@ function checkAndSubmit() {
   if (errorCount === 0) document.contactform.submit();
 }
 
+document.getElementById('firstname').addEventListener('input', {checkType: 'required', handleEvent: blurInputCheck});
 document.getElementById('firstname').addEventListener('blur', {checkType: 'required', handleEvent: blurInputCheck});
+document.getElementById('surname').addEventListener('input', {checkType: 'required', handleEvent: blurInputCheck});
 document.getElementById('surname').addEventListener('blur', {checkType: 'required', handleEvent: blurInputCheck});
-document.getElementById('email').addEventListener('blur', {checkType: 'required|pattern',checkPattern: '^.*@.*\\..*', patternMessage: 'メールアドレスの形式で入力してください', handleEvent: blurInputCheck});
+document.getElementById('email').addEventListener('input', {checkType: 'required|pattern',checkPattern: '^.+@.+\\..+', patternMessage: 'メールアドレスの形式で入力してください', handleEvent: blurInputCheck});
+document.getElementById('email').addEventListener('blur', {checkType: 'required|pattern',checkPattern: '^.+@.+\\..+', patternMessage: 'メールアドレスの形式で入力してください', handleEvent: blurInputCheck});
+document.getElementById('postcode').addEventListener('input', {checkType: 'required|pattern',checkPattern: '[0-9]{3}-[0-9]{4}', patternMessage: '郵便番号の形式で入力してください', handleEvent: blurInputCheck});
 document.getElementById('postcode').addEventListener('blur', {checkType: 'required|pattern',checkPattern: '[0-9]{3}-[0-9]{4}', patternMessage: '郵便番号の形式で入力してください', handleEvent: blurInputCheck});
+document.getElementById('address').addEventListener('input', {checkType: 'required', handleEvent: blurInputCheck});
 document.getElementById('address').addEventListener('blur', {checkType: 'required', handleEvent: blurInputCheck});
+document.getElementById('opinion').addEventListener('input', {checkType: 'required', handleEvent: blurInputCheck});
 document.getElementById('opinion').addEventListener('blur', {checkType: 'required', handleEvent: blurInputCheck});
 
 
