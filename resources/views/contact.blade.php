@@ -72,7 +72,7 @@
         <th><span class="required">郵便番号</span></th>
         <td>
           <div class="content-inner">
-            <input class="input-text" type="text" name="postcode" maxlength="8" id="postcode" value="{{$postcode}}" onblur="AjaxZip3.zip2addr(this, '', 'address', 'address')">
+            <input class="input-text" type="text" name="postcode" maxlength="8" id="postcode" value="{{$postcode}}">
             <span class="postcode-error error-message"></span>
             <p class="example">例）123-4567</p>
           </div>

@@ -33,9 +33,20 @@ function validation(targetID, inputValue, checkType, checkPattern = '', patternM
 }
 
 function blurInputCheck(event) {
-  let targetID = event.currentTarget.id;
-  let inputValue = event.currentTarget.value;
-  validation(targetID, inputValue, this.checkType, this.checkPattern, this.patternMessage);
+  validation(event.currentTarget.id, event.currentTarget.value, this.checkType, this.checkPattern, this.patternMessage);
+}
+
+function autoFwToHw(targetString) {
+  return targetString.replace(/[０-９]/g, function(s) {
+    return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+  });
+}
+
+function postCodeAutoInput(event) {
+  event.currentTarget.value = autoFwToHw(event.currentTarget.value).replace('－', '-');
+  if(validation('postcode', document.getElementById('postcode').value, 'required|pattern', '[0-9]{3}-[0-9]{4}', '郵便番号の形式で入力してください')) {
+    AjaxZip3.zip2addr('postcode', '', 'address', 'address');
+  }
 }
 
 function checkAndSubmit() {
@@ -57,7 +68,7 @@ document.getElementById('surname').addEventListener('blur', {checkType: 'require
 document.getElementById('email').addEventListener('input', {checkType: 'required|pattern',checkPattern: '^.+@.+\\..+', patternMessage: 'メールアドレスの形式で入力してください', handleEvent: blurInputCheck});
 document.getElementById('email').addEventListener('blur', {checkType: 'required|pattern',checkPattern: '^.+@.+\\..+', patternMessage: 'メールアドレスの形式で入力してください', handleEvent: blurInputCheck});
 document.getElementById('postcode').addEventListener('input', {checkType: 'required|pattern',checkPattern: '[0-9]{3}-[0-9]{4}', patternMessage: '郵便番号の形式で入力してください', handleEvent: blurInputCheck});
-document.getElementById('postcode').addEventListener('blur', {checkType: 'required|pattern',checkPattern: '[0-9]{3}-[0-9]{4}', patternMessage: '郵便番号の形式で入力してください', handleEvent: blurInputCheck});
+document.getElementById('postcode').addEventListener('blur', postCodeAutoInput);
 document.getElementById('address').addEventListener('input', {checkType: 'required', handleEvent: blurInputCheck});
 document.getElementById('address').addEventListener('blur', {checkType: 'required', handleEvent: blurInputCheck});
 document.getElementById('opinion').addEventListener('input', {checkType: 'required', handleEvent: blurInputCheck});
