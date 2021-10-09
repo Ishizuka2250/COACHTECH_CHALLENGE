@@ -4,6 +4,10 @@
   <link rel="stylesheet" href="{{asset('css/contact.css')}}">
 @endsection
 
+@section('javascript')
+  <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+@endsection
+
 @section('page-title', 'Contacts')
 
 @section('page-header')
@@ -68,7 +72,7 @@
         <th><span class="required">郵便番号</span></th>
         <td>
           <div class="content-inner">
-            <input class="input-text" type="text" name="postcode" maxlength="8" id="postcode" value="{{$postcode}}">
+            <input class="input-text" type="text" name="postcode" maxlength="8" id="postcode" value="{{$postcode}}" onblur="AjaxZip3.zip2addr(this, '', 'address', 'address')">
             <span class="postcode-error error-message"></span>
             <p class="example">例）123-4567</p>
           </div>
