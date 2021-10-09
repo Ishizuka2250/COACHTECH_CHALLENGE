@@ -17,69 +17,72 @@
       <tr>
         <th><p>お名前</p></th>
         <td>
-          <input type="hidden" name="firstname" value="">
-          <input type="hidden" name="surname" value="">
+          <input type="hidden" name="fullname" value="{{$fullname}}">
           <div class="check-content-inner">
-            <p>hoge fuga</p>
+            <p>{{$fullname}}</p>
           </div>
         </td>
       </tr>
       <tr>
         <th><p>性別</p></th>
         <td>
-          <input type="hidden" name="gender" value="">
+          <input type="hidden" name="gender" value="{{$gender}}">
           <div class="check-content-inner">
-            <p>男性</p>
+            @if ($gender = 1)
+              <p>男性</p>
+            @elseif ($gender = 2)
+              <p>女性</p>
+            @endif
           </div>
         </td>
       </tr>
       <tr>
         <th><p>メールアドレス</p></th>
         <td>
-          <input type="hidden" name="email" value="">
+          <input type="hidden" name="email" value="{{$email}}">
           <div class="check-content-inner">
-            <p>test@example.com</p>
+            <p>{{$email}}</p>
           </div>
         </td>
       </tr>
       <tr>
         <th><p>郵便番号</p></th>
         <td>
-          <input type="hidden" name="postcode" value="">
+          <input type="hidden" name="postcode" value="{{$postcode}}">
           <div class="check-content-inner">
-            <p>123-4567</p>
+            <p>{{$postcode}}</p>
           </div>
         </td>
       </tr>
       <tr>
         <th><p>住所</p></th>
         <td>
-          <input type="hidden" name="address" value="">
+          <input type="hidden" name="address" value="{{$address}}">
           <div class="check-content-inner">
-            <p>東京都渋谷区千駄ヶ谷1-2-3</p>
+            <p>{{$address}}</p>
           </div>
         </td>
       </tr>
       <tr>
         <th><p>建物名</p></th>
         <td>
-          <input type="hidden" name="building_name" value="">
+          <input type="hidden" name="building_name" value="{{$building_name}}">
           <div class="check-content-inner">
-            <p>千駄ヶ谷マンション</p>
+            <p>{{$building_name}}</p>
           </div>
         </td>
       </tr>
       <tr>
         <th><p>ご意見</p></th>
         <td>
-          <input type="hidden" name="opinion" value="">
+          <input type="hidden" name="opinion" value="{{$opinion}}">
           <div class="check-content-inner">
-            <p>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</p>
+            <p>{{$opinion}}</p>
           </div>
         </td>
       </tr>
     </table>
     <input class="button" type="submit" value="確認">
   </form>
-  <a class="fix-link" href="/contact">修正する</a>
+  <a class="fix-link" href="/contact?fix=1&fullname={{$fullname}}&gender={{$gender}}&email={{$email}}&postcode={{$postcode}}&address={{$address}}&building_name={{$building_name}}&opinion={{$opinion}}">修正する</a>
 @endsection

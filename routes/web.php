@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/contact', [ContactController::class, 'contact']);
+Route::get('/check', function () {
+     return '404 Not Found';
 });
+Route::post('/check', [ContactController::class, 'check']);
+Route::get('/thanks', function () {
+    return  '404 Not Found';
+});
+Route::get('/admin', function () {
+    return view('admin');
+});
+
