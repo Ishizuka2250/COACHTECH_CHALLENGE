@@ -90,10 +90,14 @@
           <td class="gender">女性</td>
         @endif
         <td class="email">{{$item->email}}</td>
-        <td class="opinion">{{$item->opinion}}</td>
+        <td class="opinion">
+          <span class="opinion-full" id="full-{{$item->id}}">{{$item->opinion}}</span>
+          <div class="opinion-display" id="{{$item->id}}">{{mb_substr($item->opinion, 0, 25) . '...'}}</div>
+        </td>
         <td class="delete"><input class="delete-button" type="submit" value="削除"></td>
       </tr>
     </form>
   @endforeach
+  <script src="{{asset('js/opinion.js')}}"></script>
 </table>
 @endsection

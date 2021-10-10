@@ -102,7 +102,7 @@ class ContactController extends Controller
                 '_token' => $request->_token,
                 'fullname' => $request->fullname,
                 'gender' => $request->gender,
-                'createfrom' => $request->createFrom,
+                'createfrom' => $request->createfrom,
                 'createto' => $request->createto,
                 'email' => $request->email
             ];

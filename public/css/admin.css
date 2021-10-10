@@ -132,3 +132,9 @@ svg.w-5.h-5 {
 width: 30px;
 height: 30px;
 }
+.opinion-display {
+  display: block;
+}
+.opinion-full {
+  display: none;
+}
