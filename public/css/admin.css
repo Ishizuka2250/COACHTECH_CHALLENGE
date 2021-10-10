@@ -128,3 +128,7 @@ table tr td {
   width: 60px;
   height: 25px;
 }
+svg.w-5.h-5 {
+width: 30px;
+height: 30px;
+}

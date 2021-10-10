@@ -47,7 +47,7 @@
         <input class="input-text" name="createfrom" type="date" value="{{$createfrom}}">
         <p class="to">～</p>
         <input class="input-text" name="createto" type="date" value="{{$createto}}">
-      </div>
+        </div>
       <div class="box3">
         <p class="input-title">メールアドレス</p>
         <input class="input-text" name="email" type="text" value="{{$email}}">
@@ -59,6 +59,16 @@
     </div>
   </div>
 </form>
+@if (!empty($items))
+  {{$items->appends([
+    '_token' => $_token,
+    'fullname' => $fullname,
+    'gender' => $gender,
+    'createfrom' => $createfrom,
+    'createto' => $createto,
+    'email' => $email
+  ])->links()}}
+@endif
 <table>
   <tr>
     <th class="id">ID</th>

@@ -6,6 +6,7 @@ use App\Models\Contact;
 use DateTime;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class ContactController extends Controller
 {
@@ -55,7 +56,8 @@ class ContactController extends Controller
     }
 
     public function thanks(Request $request) {
-        if (($request->create_token !== '') && ($request->session()->get('create_token') !== '') &&
+        if (($request->create_token !== '') &&
+            ($request->session()->get('create_token') !== '') &&
             ($request->create_token === $request->session()->get('create_token'))) {
                 $request->session()->put('create_token', '');
                 return view('thanks');
@@ -96,8 +98,15 @@ class ContactController extends Controller
     public function admin(Request $request) {
         $items = [];
         if ($request->has('_token')) {
-            $searchRequests = $request->all();
-            $items = $this->contactSearch($searchRequests)->get();
+            $searchRequests = [
+                '_token' => $request->_token,
+                'fullname' => $request->fullname,
+                'gender' => $request->gender,
+                'createfrom' => $request->createFrom,
+                'createto' => $request->createto,
+                'email' => $request->email
+            ];
+            $items = $this->contactSearch($searchRequests)->paginate(10);
         }else{
             $searchRequests = [
                 'fullname' => '',
