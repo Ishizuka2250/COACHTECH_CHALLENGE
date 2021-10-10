@@ -89,14 +89,34 @@
 }
 table {
   width: 90%;
+  margin-bottom: 50px;
 }
 table tr th {
-  padding: 10px 0 10px 0;
+  padding: 10px 5px 10px;
   border-bottom: 1px solid #000 ;
 }
 table tr td {
-  padding: 10px 0 10px 0;
+  padding: 10px 5px 10px;
   text-align: center;
+}
+.id {
+  width: 2.5%;
+}
+.name {
+  width: 20%;
+}
+.gender {
+  width: 5%;
+}
+.email {
+  width: 20%;
+}
+.opinion {
+  width: 42.5%;
+  text-align: left;
+}
+.delete {
+  width: 10%;
 }
 .delete-button {
   display: inline-block;
@@ -106,5 +126,5 @@ table tr td {
   border-radius: 5px;
   font-weight: bold;
   width: 60px;
-  height: 25px;   
+  height: 25px;
 }

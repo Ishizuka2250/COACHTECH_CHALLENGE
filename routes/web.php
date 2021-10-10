@@ -19,7 +19,6 @@ Route::get('/check', function () {return '404 Not Found';});
 Route::post('/check', [ContactController::class, 'check']);
 Route::post('/create', [ContactController::class, 'create']);
 Route::get('/thanks', [ContactController::class, 'thanks']);
-Route::get('/admin', function () {
-    return view('admin');
-});
+Route::get('/admin', [ContactController::class, 'admin']);
+Route::post('/admin', [ContactController::class, 'admin_select']);
 

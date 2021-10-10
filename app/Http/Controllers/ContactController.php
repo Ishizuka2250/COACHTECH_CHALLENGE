@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use DateTime;
 use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 
@@ -61,6 +62,48 @@ class ContactController extends Controller
         } else {
             return 'error: invalid token.';
         }
+    }
+
+    public function admin(Request $request) {
+        $searchRequests = [
+            'fullname' => '',
+            'gender' => '0',
+            'createfrom' => '',
+            'createto' => '',
+            'email' => ''
+        ];
+        return view('admin', ['items' => []], $searchRequests);
+    }
+
+    public function admin_select(Request $request) {
+        $searchRequests = $request->all();
+        $contact = new Contact();
+        $debug = "";
+        foreach($searchRequests as $key => $value) {
+            if (! empty($value)) {
+            switch ($key) {
+                case 'fullname':
+                case 'email':
+                    $contact = $contact->where($key, $value);
+                    break;
+                
+                case 'gender':
+                    if ($value !== 0) $contact = $contact->where($key, $value);
+                    break;
+                
+                case 'createfrom':
+                    $from = new DateTime($value);
+                    $contact = $contact->where('created_at', '>=', $from->format('Y/m/d h:i:s'));
+                    break;
+                
+                case 'createto':
+                    $to = new DateTime($value);
+                    $contact = $contact->where('created_at', '<=', $to->format('Y/m/d h:i:s'));
+                    break;
+            }}
+        }
+        return view('admin', ['items' => $contact->get()], $searchRequests);
+        // return $debug;
     }
 
 }
