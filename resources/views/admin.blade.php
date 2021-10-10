@@ -11,7 +11,7 @@
 @endsection
 
 @section('contents')
-<form class="input-form" action="/admin" method="post">
+<form class="input-form" action="/admin" method="GET">
   @csrf
   <div class="outer-input-box">
     <div class="inner-input-box">
@@ -59,19 +59,19 @@
     </div>
   </div>
 </form>
-<form class="delete-form" action="/delete" method="POST">
-  <table>
-    <tr>
-      <th class="id">ID</th>
-      <th class="name">お名前</th>
-      <th class="gender">性別</th>
-      <th class="email">メールアドレス</th>
-      <th class="opinion">ご意見</th>
-      <th class="delete"></th>
-    </tr>
-    @foreach ($items as $item)
+<table>
+  <tr>
+    <th class="id">ID</th>
+    <th class="name">お名前</th>
+    <th class="gender">性別</th>
+    <th class="email">メールアドレス</th>
+    <th class="opinion">ご意見</th>
+    <th class="delete"></th>
+  </tr>
+  @foreach ($items as $item)
+    <form class="delete-form" action="/delete?id={{$item->id}}&fullname={{$fullname}}&gender={{$gender}}&createfrom={{$createfrom}}&createto={{$createto}}&email={{$email}}" method="POST">
+      @csrf
       <tr>
-        <input type="hidden" value="{{$item->id}}">
         <td class="id">{{$item->id}}</td>
         <td class="name">{{$item->fullname}}</td>
         @if($item->gender == 1)
@@ -83,7 +83,7 @@
         <td class="opinion">{{$item->opinion}}</td>
         <td class="delete"><input class="delete-button" type="submit" value="削除"></td>
       </tr>
-    @endforeach
-  </table>
-</form>
+    </form>
+  @endforeach
+</table>
 @endsection

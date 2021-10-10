@@ -64,46 +64,61 @@ class ContactController extends Controller
         }
     }
 
-    public function admin(Request $request) {
-        $searchRequests = [
-            'fullname' => '',
-            'gender' => '0',
-            'createfrom' => '',
-            'createto' => '',
-            'email' => ''
-        ];
-        return view('admin', ['items' => []], $searchRequests);
-    }
-
-    public function admin_select(Request $request) {
-        $searchRequests = $request->all();
+    private function contactSearch($searchRequests) {
         $contact = new Contact();
-        $debug = "";
         foreach($searchRequests as $key => $value) {
             if (! empty($value)) {
-            switch ($key) {
-                case 'fullname':
-                case 'email':
-                    $contact = $contact->where($key, $value);
-                    break;
-                
-                case 'gender':
-                    if ($value !== 0) $contact = $contact->where($key, $value);
-                    break;
-                
-                case 'createfrom':
-                    $from = new DateTime($value);
-                    $contact = $contact->where('created_at', '>=', $from->format('Y/m/d h:i:s'));
-                    break;
-                
-                case 'createto':
-                    $to = new DateTime($value);
-                    $contact = $contact->where('created_at', '<=', $to->format('Y/m/d h:i:s'));
-                    break;
-            }}
+                switch ($key) {
+                    case 'fullname':
+                    case 'email':
+                        $contact = $contact->where($key, $value);
+                        break;
+                    
+                    case 'gender':
+                        if ($value !== 0) $contact = $contact->where($key, $value);
+                        break;
+                    
+                    case 'createfrom':
+                        $from = new DateTime($value);
+                        $contact = $contact->where('created_at', '>=', $from->format('Y/m/d 00:00:00'));
+                        break;
+                    
+                    case 'createto':
+                        $to = new DateTime($value);
+                        $contact = $contact->where('created_at', '<=', $to->format('Y/m/d 23:59:59'));
+                        break;
+                }
+            }
         }
-        return view('admin', ['items' => $contact->get()], $searchRequests);
-        // return $debug;
+        return $contact;
+    }
+
+    public function admin(Request $request) {
+        $items = [];
+        if ($request->has('_token')) {
+            $searchRequests = $request->all();
+            $items = $this->contactSearch($searchRequests)->get();
+        }else{
+            $searchRequests = [
+                'fullname' => '',
+                'gender' => '0',
+                'createfrom' => '',
+                'createto' => '',
+                'email' => ''
+            ];
+        }
+        return view('admin', ['items' => $items], $searchRequests);
+    }
+
+    public function delete(Request $request) {
+        Contact::destroy($request->id);
+        return redirect('/admin' .
+            '?_token=' . $request->_token .
+            '&fullname=' . $request->fullname .
+            '&gender=' . $request->gender .
+            '&createfrom=' . $request->createfrom .
+            '&createto=' . $request->createto .
+            '&email=' . $request->email);
     }
 
 }

@@ -100,7 +100,7 @@ table tr td {
   text-align: center;
 }
 .id {
-  width: 2.5%;
+  width: 5%;
 }
 .name {
   width: 20%;
@@ -109,14 +109,14 @@ table tr td {
   width: 5%;
 }
 .email {
-  width: 20%;
+  width: 22.5%;
 }
 .opinion {
-  width: 42.5%;
+  width: 40%;
   text-align: left;
 }
 .delete {
-  width: 10%;
+  width: 7.5%;
 }
 .delete-button {
   display: inline-block;
