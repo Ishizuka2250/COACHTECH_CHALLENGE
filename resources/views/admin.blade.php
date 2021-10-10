@@ -79,7 +79,7 @@
     <th class="delete"></th>
   </tr>
   @foreach ($items as $item)
-    <form class="delete-form" action="/delete?id={{$item->id}}&fullname={{$fullname}}&gender={{$gender}}&createfrom={{$createfrom}}&createto={{$createto}}&email={{$email}}" method="POST">
+    <form class="delete-form" action="/admin/delete?id={{$item->id}}&fullname={{$fullname}}&gender={{$gender}}&createfrom={{$createfrom}}&createto={{$createto}}&email={{$email}}" method="POST">
       @csrf
       <tr>
         <td class="id">{{$item->id}}</td>

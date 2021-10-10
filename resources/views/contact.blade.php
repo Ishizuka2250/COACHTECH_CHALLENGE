@@ -15,7 +15,7 @@
 @endsection
 
 @section('contents')
-  <form action="/check" method="POST" name="contactform">
+  <form action="/contact/check" method="POST" name="contactform">
     @csrf
     <table>
       <tr>

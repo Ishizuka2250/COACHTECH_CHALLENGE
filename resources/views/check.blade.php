@@ -11,7 +11,7 @@
 @endsection
 
 @section('contents')
-  <form action="/create" method="POST">
+  <form action="/contact/create" method="POST">
     @csrf
     <table>
       <tr>

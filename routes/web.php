@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/contact', [ContactController::class, 'contact']);
-Route::get('/check', function () {return '404 Not Found';});
-Route::post('/check', [ContactController::class, 'check']);
-Route::post('/create', [ContactController::class, 'create']);
-Route::get('/thanks', [ContactController::class, 'thanks']);
+Route::get('/contact/check', function () {return abort('403', 'Forbidden');});
+Route::post('/contact/check', [ContactController::class, 'check']);
+Route::post('/contact/create', [ContactController::class, 'create']);
+Route::get('/contact/thanks', [ContactController::class, 'thanks']);
 Route::get('/admin', [ContactController::class, 'admin']);
-Route::post('/delete', [ContactController::class, 'delete']);
+Route::post('/admin/delete', [ContactController::class, 'delete']);
 

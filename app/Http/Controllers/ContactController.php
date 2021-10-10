@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use DateTime;
-use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\Paginator;
 
 class ContactController extends Controller
 {
@@ -52,7 +50,7 @@ class ContactController extends Controller
         $this->validate($request, Contact::$rules);
         Contact::create($request->all());
         $request->session()->put('create_token', $request->_token);
-        return redirect('/thanks?create_token=' . $request->_token);
+        return redirect('/contact/thanks?create_token=' . $request->_token);
     }
 
     public function thanks(Request $request) {
@@ -62,7 +60,7 @@ class ContactController extends Controller
                 $request->session()->put('create_token', '');
                 return view('thanks');
         } else {
-            return 'error: invalid token.';
+            return abort(403, 'Forbidden');
         }
     }
 
