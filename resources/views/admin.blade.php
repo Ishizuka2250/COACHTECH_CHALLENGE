@@ -92,7 +92,7 @@
         <td class="email">{{$item->email}}</td>
         <td class="opinion">
           <span class="opinion-full" id="full-{{$item->id}}">{{$item->opinion}}</span>
-          <div class="opinion-display" id="{{$item->id}}">{{mb_substr($item->opinion, 0, 25) . '...'}}</div>
+          <div class="opinion-display" id="{{$item->id}}">{{$item->opinion}}</div>
         </td>
         <td class="delete"><input class="delete-button" type="submit" value="削除"></td>
       </tr>
