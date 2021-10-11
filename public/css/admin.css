@@ -128,13 +128,21 @@ table tr td {
   width: 60px;
   height: 25px;
 }
-svg.w-5.h-5 {
-width: 30px;
-height: 30px;
-}
 .opinion-display {
   display: block;
 }
 .opinion-full {
   display: none;
+}
+
+.navigation-outer {
+  width: 90%;
+}
+.pagenation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.pagelinks a {
+  text-decoration: none;
 }

@@ -67,7 +67,7 @@
     'createfrom' => $createfrom,
     'createto' => $createto,
     'email' => $email
-  ])->links()}}
+  ])->links('vendor.pagination.pagenation')}}
 @endif
 <table>
   <tr>
